@@ -1,0 +1,269 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.theme_1 {
+  --main_background: hsl(222, 26%, 31%);
+  --toggle_background: hsl(223, 31%, 20%);
+  --keypad_background: hsl(223, 31%, 20%);
+  --screen_background: hsl(224, 36%, 15%);
+  --key_background_number: hsl(30, 25%, 89%);
+  --key_shadow: hsl(28, 16%, 65%);
+  --key_number: hsl(221, 14%, 31%);
+  --white: hsl(0, 0%, 100%);
+  --very_dark_blue: hsl(224, 28%, 35%);
+  --very_dark_blue_shadow: hsl(221, 14%, 31%);
+  --red_key_background: hsl(6, 63%, 50%);
+  --darkRed_keyShadow: hsl(6, 70%, 34%);
+  --text_color: white;
+  --color-white: white;
+}
+
+.theme_2 {
+  --main_background: hsl(0, 0%, 90%);
+  --toggle_background: hsl(0, 5%, 81%);
+  --keypad_background: hsl(0, 5%, 81%);
+  --screen_background: hsl(0, 0%, 93%);
+  --key_background_number: hsl(45, 7%, 89%);
+  --key_shadow: hsl(28, 16%, 65%);
+  --key_number: hsl(60, 10%, 19%);
+  --white: hsl(60, 10%, 19%);
+  --very_dark_blue: hsl(185, 42%, 37%);
+  --very_dark_blue_shadow: hsl(185, 58%, 25%);
+  --red_key_background: hsl(25, 98%, 40%);
+  --darkRed_keyShadow: hsl(25, 99%, 27%);
+  --text_color: hsl(60, 10%, 19%);
+  --color-white: white;
+}
+
+.theme_3 {
+  --main_background: hsl(268, 75%, 9%);
+  --toggle_background: hsl(268, 71%, 12%);
+  --keypad_background: hsl(268, 71%, 12%);
+  --screen_background: hsl(268, 71%, 12%);
+  --key_background_number: hsl(268, 47%, 21%);
+  --key_shadow: hsl(290, 70%, 36%);
+  --key_number: hsl(52, 100%, 62%);
+  --white: hsl(52, 100%, 62%);
+  --very_dark_blue: hsl(281, 89%, 26%);
+  --very_dark_blue_shadow: hsl(285, 91%, 52%);
+  --red_key_background: hsl(176, 100%, 44%);
+  --darkRed_keyShadow: hsl(177, 92%, 70%);
+  --text_color: hsl(52, 100%, 62%);
+  --color-white: white;
+}
+
+body {
+  background: var(--main_background);
+}
+
+.container {
+  display: grid;
+  justify-content: center;
+  row-gap: 30px;
+  font-family: "Spartan", sans-serif;
+  font-weight: 700;
+  font-size: 32px;
+  margin-top: 5%;
+}
+.calculator-grid {
+  display: grid;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  column-gap: 15px;
+  grid-template-columns: repeat(4, 150px);
+  grid-template-rows: minmax(120px, auto) repeat(4, 100px);
+  background-color: var(--keypad_background);
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.calculator-grid > button {
+  border-radius: 15px;
+  cursor: pointer;
+  font-size: 2rem;
+  outline: none;
+  color: var(--key_number);
+  background-color: var(--key_background_number);
+  box-shadow: 0 4px var(--key_shadow);
+  border: none;
+  font-size: 32px;
+  font-weight: 700;
+  font-family: "Spartan", sans-serif;
+  height: 80px;
+}
+
+#span-two {
+  grid-column: span 2;
+  color: var(--color-white) !important;
+  background-color: var(--very_dark_blue) !important;
+  box-shadow: 0 4px var(--very_dark_blue_shadow);
+  font-size: 1.5rem;
+}
+
+#span-three {
+  grid-column: span 2;
+  color: var(--key_background_number) !important;
+  background-color: var(--red_key_background) !important;
+  box-shadow: 0 4px var(--darkRed_keyShadow);
+  font-size: 1.5rem;
+}
+
+#delete {
+  background-color: var(--very_dark_blue) !important;
+  box-shadow: 0 4px var(--very_dark_blue_shadow) !important;
+  color: var(--color-white);
+  font-size: 1.5rem;
+}
+
+.output {
+  grid-column: 1 / -1;
+  background-color: var(--screen_background);
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-around;
+  flex-direction: column;
+  height: 150px;
+  word-wrap: break-word;
+  word-break: break-all;
+  border-radius: 10px;
+  padding: 25px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.output .current-operand {
+  color: var(--white);
+  font-size: 2rem;
+}
+
+.output .previous-operand {
+  color: var(--white);
+  font-size: 1.5rem;
+}
+
+/*#########RANGE###################*/
+
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+  input[type="range"] {
+    overflow: hidden;
+    width: 60px;
+    -webkit-appearance: none;
+    background-color: var(--keypad_background);
+    border-radius: 15px;
+    height: 15px;
+    margin-left: 15px;
+    vertical-align: bottom;
+  }
+
+  input[type="range"]::-webkit-slider-runnable-track {
+    height: 12px;
+    -webkit-appearance: none;
+    color: #13bba4;
+    margin-top: -1px;
+  }
+
+  input[type="range"]::-webkit-slider-thumb {
+    width: 10px;
+    -webkit-appearance: none;
+    height: 10px;
+    cursor: ew-resize;
+    background: var(--red_key_background);
+    border-radius: 50%;
+  }
+}
+/** FF*/
+input[type="range"]::-moz-range-progress {
+  background-color: #43e5f7;
+}
+input[type="range"]::-moz-range-track {
+  background-color: #9a905d;
+}
+/* IE*/
+input[type="range"]::-ms-fill-lower {
+  background-color: #43e5f7;
+}
+input[type="range"]::-ms-fill-upper {
+  background-color: #9a905d;
+}
+
+.picker {
+  color: var(--text_color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#range {
+  font-size: 12px !important;
+  font-weight: bold;
+  color: var(--text_color);
+}
+
+#number {
+  margin-left: 46px;
+  display: flex;
+  justify-content: space-between;
+  margin-left: 46px;
+  display: flex;
+  justify-content: space-between;
+  margin-left: 63px;
+}
+
+@media (min-width: 600px) and (max-width: 800px) {
+  .calculator-grid {
+    grid-template-columns: repeat(4, 100px);
+  }
+}
+
+@media (min-width: 350px) and (max-width: 600px) {
+  .calculator-grid {
+    grid-template-columns: repeat(4, 65px);
+    column-gap: 15px;
+    padding: 15px;
+    align-items: normal;
+    grid-template-rows: minmax(91px, auto) repeat(4, 85px);
+  }
+
+  .calculator-grid > button {
+    font-size: 28px;
+    height: 65px;
+  }
+
+  .container {
+    font-size: 28px;
+    row-gap: 15px;
+  }
+
+  .output {
+    height: 90px;
+  }
+}
+
+@media (min-width: 150px) and (max-width: 350px) {
+  .calculator-grid {
+    grid-template-columns: repeat(4, 60px);
+    column-gap: 10px;
+    padding: 10px;
+    align-items: normal;
+    grid-template-rows: minmax(75px, auto) repeat(4, 75px);
+  }
+  .calculator-grid > button {
+    font-size: 28px;
+    height: 50px;
+  }
+
+  .container {
+    font-size: 28px;
+    row-gap: 10px;
+  }
+  .output {
+    height: 85px;
+  }
+}
