@@ -98,6 +98,12 @@ body {
   height: 80px;
 }
 
+.calculator-grid > button:active {
+  box-shadow: 0 5px;
+  transform: translateY(4px);
+}
+
+
 #span-two {
   grid-column: span 2;
   color: var(--color-white) !important;
