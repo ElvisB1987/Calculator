@@ -1,16 +1,20 @@
+
+
+//class Calculator  including varibles and functions 
+
 class Calculator {
   constructor(previousOperandTextElement, currentOperandTextElement) {
     this.previousOperandTextElement = previousOperandTextElement;
     this.currentOperandTextElement = currentOperandTextElement;
     this.clear();
   }
-
+  // function clear cer evriting 
   clear() {
     this.currentOperand = "";
     this.previousOperand = "";
     this.operation = undefined;
   }
-
+  // function delete removeving numbers from displey -1
   delete() {
     this.currentOperand = this.currentOperand.toString().slice(0, -1);
   }
@@ -19,7 +23,7 @@ class Calculator {
     if (number === "." && this.currentOperand.includes(".")) return;
     this.currentOperand = this.currentOperand.toString() + number.toString();
   }
-
+  // operations  if operation diferent for empaty dan call function compute()
   chooseOperation(operation) {
     if (this.currentOperand === "") return;
     if (this.previousOperand !== "") {
@@ -29,7 +33,7 @@ class Calculator {
     this.previousOperand = this.currentOperand;
     this.currentOperand = "";
   }
-
+  // function compute in deferent case calculated values 
   compute() {
     let computation;
     const prev = parseFloat(this.previousOperand);
@@ -56,6 +60,7 @@ class Calculator {
     this.previousOperand = "";
   }
 
+  // this functions number or decimal number  to string and spliting per "." 
   getDisplayNumber(number) {
     const stringNumber = number.toString();
     const integerDigits = parseFloat(stringNumber.split(".")[0]);
@@ -74,7 +79,7 @@ class Calculator {
       return integerDisplay;
     }
   }
-
+  // functions updateDisplay writing values on output display
   updateDisplay() {
     this.currentOperandTextElement.innerText = this.getDisplayNumber(
       this.currentOperand
@@ -105,35 +110,39 @@ const calculator = new Calculator(
   previousOperandTextElement,
   currentOperandTextElement
 );
-
+// event lisener for number and writing on display
 numberButtons.forEach((button) => {
   button.addEventListener("click", () => {
     calculator.appendNumber(button.innerText);
     calculator.updateDisplay();
   });
 });
-
+// event lisener for operation and updating display 
 operationButtons.forEach((button) => {
   button.addEventListener("click", () => {
     calculator.chooseOperation(button.innerText);
     calculator.updateDisplay();
   });
 });
-
+// equal button lisiner calculated and writ on diplay value 
 equalsButton.addEventListener("click", (button) => {
   calculator.compute();
   calculator.updateDisplay();
 });
 
+//  event lisner for clear button 
 allClearButton.addEventListener("click", (button) => {
   calculator.clear();
   calculator.updateDisplay();
 });
 
+// event lisner for dlete button and display update
 deleteButton.addEventListener("click", (button) => {
   calculator.delete();
   calculator.updateDisplay();
 });
+
+// thsi functions channge theme
 
 (function (d) {
   "use strict";
