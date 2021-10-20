@@ -18,7 +18,7 @@ class Calculator {
   delete() {
     this.currentOperand = this.currentOperand.toString().slice(0, -1);
   }
-
+  // function appendNumber return only number and wie can youse too adding number on diplay evry time when user druck the button
   appendNumber(number) {
     if (number === "." && this.currentOperand.includes(".")) return;
     this.currentOperand = this.currentOperand.toString() + number.toString();
