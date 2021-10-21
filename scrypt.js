@@ -8,7 +8,7 @@ class Calculator {
     this.currentOperandTextElement = currentOperandTextElement;
     this.clear();
   }
-  // function clear cer evriting 
+  // function clear delete  evriting 
   clear() {
     this.currentOperand = "";
     this.previousOperand = "";
@@ -18,7 +18,7 @@ class Calculator {
   delete() {
     this.currentOperand = this.currentOperand.toString().slice(0, -1);
   }
-  // function appendNumber return only number and wie can youse too adding number on diplay evry time when user druck the button
+  // function appendNumber return only number and we can youse too adding number on diplay evry time when user press the button
   appendNumber(number) {
     if (number === "." && this.currentOperand.includes(".")) return;
     this.currentOperand = this.currentOperand.toString() + number.toString();
@@ -124,7 +124,7 @@ operationButtons.forEach((button) => {
     calculator.updateDisplay();
   });
 });
-// equal button lisiner calculated and writ on diplay value 
+// equal button lisiner calculated and write on diplay value 
 equalsButton.addEventListener("click", (button) => {
   calculator.compute();
   calculator.updateDisplay();
